@@ -1,0 +1,47 @@
+
+<div class="row justify-content-center mt-sm-2">
+    
+    <div class="modal fade" id="id{{post.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="id{{post.id}}">{{post.title}}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+          <div class="modal-body">           
+            {{post.body}}
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Zavřít</button>
+            {% if current_user.is_authenticated %}
+            {% if current_user.id == post.user_id %}
+            <form action="{{url_for("delete", id = post.id)}}" method = "Post">
+                <button class="btn btn-light btn-outline-dark" type="submit">Smazat inzerát</button>
+            </form>
+            {% endif %}
+            {% endif %}
+        </div>
+        </div>
+    </div>
+</div><br>
+
+<div class="row justify-content-center mt-sm-2 no-gutters">
+    <div class="card p-0" style="width: 800px;">
+        <div class="row no-gutters">
+            <div class="col-sm-4">
+                <img class="card-img" src="{{url_for('static',filename = 'pictures/slk.jpg')}}" alt="">
+            </div>
+            <div class="col-sm-8">
+                <div class="card-body">
+                    <h5 class="card-title" >{{post.title}} by: {{post.parrent.username}}, category: {{ post.postCat.name }}</h5>
+                    <p class="card-text col-2 text-truncate" style="width:100% ;">{{post.body}}.</p>
+                    <button type="button" class="btn btn-light btn-outline-dark" data-toggle="modal" data-target="#id{{post.id}}">
+                        Detail
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

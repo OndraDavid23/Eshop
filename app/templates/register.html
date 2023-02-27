@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<form action ="" method = "POST">
+    {{form.hidden_tag()}}
+    {{form.csrf_token}}
+    {{form.username.label}}<br>
+    {{form.username}}<br>
+    {% for error in form.username.errors %}
+        <span style="color:red">{{error}}</span><br>
+    {% endfor %}
+    {{form.email.label}}<br>
+    {{form.email}}<br>
+    {% for error in form.email.errors %}
+        <span style="color:red">{{error}}</span><br>
+    {% endfor %}
+    {{form.mobile.label}}<br>
+    {{form.mobile}}<br>
+    {% for error in form.mobile.errors %}
+        <span style="color:red">{{error}}</span><br>
+    {% endfor %}
+    {{form.password.label}}<br>
+    {{form.password}}<br>
+    {{form.password2.label}}<br>
+    {{form.password2}}<br>
+    {{form.submit}}
+</form>
+
+
+{% endblock %}

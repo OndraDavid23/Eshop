@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block content %}
+<img src="{{url_for('static',filename = 'pictures/slk.jpg')}}" alt="image" style="width: 320px;">
+<img src="static\pictures\slk.jpg" alt="image" style="width: 320px;">
+<h4>{{post.title}}</h4>
+{{post.body}}<br>
+{{post.price}} kč<br>
+{% endblock %}

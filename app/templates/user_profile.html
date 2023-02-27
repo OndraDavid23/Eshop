@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row justify-content-center mt-sm-2">
+    <form action="{{url_for("new_post")}}">
+        <button class="btn btn-light btn-outline-dark" type="submit">Přidat inzerát</button>
+    </form>
+</div>
+{% for post in user_posts %}
+{% include "_post.html" %}
+{% endfor %}
+{% endblock %}

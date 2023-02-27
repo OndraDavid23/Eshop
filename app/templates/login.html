@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<form action ="" method = "POST">
+    {{form.csrf_token}}
+    {{form.username.label}}<br>
+    {{form.username}}<br>
+    {{form.password.label}}<br>
+    {{form.password}}<br>
+    {{form.remember}}
+    {{form.remember.label}}<br>
+    {{form.submit}}
+</form>
+{% with messages = get_flashed_messages(with_categories = true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+            {% if category == "error" %}
+            <a>{{ message }}</a>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+
+
+{% endblock %}
