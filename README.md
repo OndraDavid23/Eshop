@@ -1,5 +1,3 @@
 # eshop
 
-Learing Flask
-
-Still work in progress.
+Project to learn Flask. It is not done yet.
